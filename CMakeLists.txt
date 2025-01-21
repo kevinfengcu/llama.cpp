@@ -31,7 +31,6 @@ endif()
 set(BUILD_SHARED_LIBS_DEFAULT OFF)
 
 option(BUILD_SHARED_LIBS "build shared libraries" ${BUILD_SHARED_LIBS_DEFAULT})
-set(CMAKE_EXE_LINKER_FLAGS "-static")
 
 if (WIN32)
     add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
