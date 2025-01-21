@@ -60,11 +60,11 @@ jobs:
           run: |
             Copy-Item LICENSE .\build\bin\Release\llama.cpp.txt
             Copy-Item .\examples\run\linenoise.cpp\LICENSE .\build\bin\Release\linenoise.cpp.txt
-            7z a llama-${{ steps.tag.outputs.name }}-bin-win-${{ matrix.build }}.zip .\build\bin\Release\*
+            7z a llama-${{ steps.tag.outputs.name }}-bin-cuda-${{ matrix.build }}.zip .\build\bin\Release\*
 
         - name: Upload artifacts
           if: ${{ ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) || github.event.inputs.create_release == 'true' }}
           uses: actions/upload-artifact@v4
           with:
             path: llama-${{ steps.tag.outputs.name }}-bin-cuda-${{ matrix.build }}.zip
-            name: llama-bin-win-${{ matrix.build }}.zip
+            name: llama-bin-cuda-${{ matrix.build }}.zip
